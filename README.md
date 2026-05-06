@@ -3,6 +3,17 @@
 A curated collection of architectural patterns for business logic in Kotlin. This project demonstrates how to implement
 the UseCase pattern using different error-handling strategies while maintaining a clean, symmetric API.
 
+## Table of Contents
+
+- [The Problem](#the-problem)
+- [Implementations](#implementations)
+    - [Arrow (Typed Errors)](#arrow-typed-errorssrcmainkotliniogithubnumqusecasearrowusecasekt---recommended)
+    - [Result (Standard Wrapper)](#result-standard-wrappersrcmainkotliniogithubnumqusecaseresultusecasekt)
+    - [Raw (Direct Execution)](#raw-direct-executionsrcmainkotliniogithubnumqusecaserawusecasekt)
+- [Why use this?](#why-use-this)
+- [Usage](#usage)
+- [License](#license)
+
 ## The Problem
 
 In Kotlin, you cannot overload generics by the number of type parameters. This project solves the issue of handling
@@ -11,7 +22,7 @@ hierarchy.
 
 ## Implementations
 
-### **[Arrow (Typed Errors)](./src/main/kotlin/io/github/numq/usecase/arrow/UseCase.kt)** (Recommended)
+### **[Arrow (Typed Errors)](./src/main/kotlin/io/github/numq/usecase/arrow/UseCase.kt)** - recommended
 
 The most robust version, leveraging Arrow-kt and its Raise DSL for type-safe error handling. It transforms exceptions
 into values using Either.
@@ -50,7 +61,10 @@ The most minimalist version. It calls functions directly and throws exceptions i
 
 ## Usage
 
-### **[Arrow (Typed Errors)](./src/main/kotlin/io/github/numq/usecase/arrow/UseCase.kt)** (Recommended)
+<details open>
+<summary><b>Arrow (Typed Errors)</b> - recommended</summary>
+
+### **[View Definition](./src/main/kotlin/io/github/numq/usecase/arrow/UseCase.kt)**
 
 #### Action
 
@@ -106,7 +120,12 @@ class LoginWithEmail(private val service: AuthenticationService) : UseCase.Excha
 }
 ```
 
-### **[Result (Standard Wrapper)](./src/main/kotlin/io/github/numq/usecase/result/UseCase.kt)**
+</details>
+
+<details>
+<summary><b>Result (Standard Wrapper)</b></summary>
+
+### **[View Definition](./src/main/kotlin/io/github/numq/usecase/result/UseCase.kt)**
 
 #### Action
 
@@ -162,7 +181,12 @@ class LoginWithEmail(private val service: AuthenticationService) : UseCase.Excha
 }
 ```
 
-### **[Raw (Direct Execution)](./src/main/kotlin/io/github/numq/usecase/raw/UseCase.kt)**
+</details>
+
+<details>
+<summary><b>Raw (Direct Execution)</b></summary>
+
+**[View Definition](./src/main/kotlin/io/github/numq/usecase/raw/UseCase.kt)**
 
 #### Action
 
@@ -217,3 +241,25 @@ class LoginWithEmail(private val service: AuthenticationService) : UseCase.Excha
     override suspend fun exchange(input: Input) = service.signIn(email = input.email)
 }
 ```
+
+</details>
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+___
+
+<p align="center">
+  <a href="https://numq.github.io/support">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=112x112&data=https://numq.github.io/support&bgcolor=1a1b26&color=7aa2f7" 
+         width="112" 
+         height="112" 
+         style="border-radius: 4px;" 
+         alt="QR code">
+  </a>
+  <br>
+  <a href="https://numq.github.io/support" style="text-decoration: none;">
+    <code><font color="#bb9af7">numq.github.io/support</font></code>
+  </a>
+</p>
