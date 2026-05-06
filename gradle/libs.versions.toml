@@ -1,0 +1,7 @@
+[versions]
+arrow = "2.2.1.1"
+
+[libraries]
+arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrow" }
+
+[plugins]
