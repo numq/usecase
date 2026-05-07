@@ -45,6 +45,10 @@ A pragmatic approach using Kotlin's built-in Result type. It uses runCatching to
 
 ### **[Raw (Direct Execution)](./src/main/kotlin/io/github/numq/usecase/raw/UseCase.kt)**
 
+> [!WARNING]  
+> This variant does not handle errors. Exceptions propagate directly to the caller.
+> Use only when you have a global exception handler (e.g., coroutine exception handler).
+
 The most minimalist version. It calls functions directly and throws exceptions if something goes wrong.
 
 - **Performance:** Zero overhead from wrappers.
@@ -185,6 +189,10 @@ class LoginWithEmail(private val service: AuthenticationService) : UseCase.Excha
 
 <details>
 <summary><b>Raw (Direct Execution)</b></summary>
+
+> [!WARNING]  
+> This variant does not handle errors. Exceptions propagate directly to the caller.
+> Use only when you have a global exception handler (e.g., coroutine exception handler).
 
 **[View Definition](./src/main/kotlin/io/github/numq/usecase/raw/UseCase.kt)**
 
