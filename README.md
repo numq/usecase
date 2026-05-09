@@ -27,21 +27,21 @@ hierarchy.
 The most robust version, leveraging Arrow-kt and its Raise DSL for type-safe error handling. It transforms exceptions
 into values using Either.
 
-- Action: No input, no output (Unit -> Unit).
+- **Action:** No input, no output (Unit -> Unit).
 
-- Query: No input, returns a result (Unit -> Output).
+- **Query:** No input, returns a result (Unit -> Output).
 
-- Command: Takes input, returns nothing (Input -> Unit).
+- **Command:** Takes input, returns nothing (Input -> Unit).
 
-- Exchange: Full data transformation (Input -> Output).
+- **Exchange:** Full data transformation (Input -> Output).
 
 ### **[Result (Standard Wrapper)](./src/main/kotlin/io/github/numq/usecase/result/UseCase.kt)**
 
 A pragmatic approach using Kotlin's built-in Result type. It uses runCatching to safely wrap execution.
 
-- Safety: Automatically catches exceptions and wraps them in a Result.
+- **Safety:** Automatically catches exceptions and wraps them in a Result.
 
-- Zero Dependencies: Uses only the Kotlin Standard Library.
+- **Zero Dependencies:** Uses only the Kotlin Standard Library.
 
 ### **[Raw (Direct Execution)](./src/main/kotlin/io/github/numq/usecase/raw/UseCase.kt)**
 
