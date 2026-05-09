@@ -3,6 +3,38 @@
 A curated collection of architectural patterns for business logic in Kotlin. This project demonstrates how to implement
 the UseCase pattern using different error-handling strategies while maintaining a clean, symmetric API.
 
+```mermaid
+flowchart LR
+    subgraph Inputs
+        direction TB
+        I1["Unit"]
+        I2["Unit"]
+        I3["Input"]
+        I4["Input"]
+    end
+
+    subgraph UseCases
+        direction TB
+        UC1["Action"]
+        UC2["Query&lt;Output&gt;"]
+        UC3["Command&lt;Input&gt;"]
+        UC4["Exchange&lt;Input,Output&gt;"]
+    end
+
+    subgraph Outputs
+        direction TB
+        O1["Unit"]
+        O2["Output"]
+        O3["Unit"]
+        O4["Output"]
+    end
+
+    I1 --> UC1 --> O1
+    I2 --> UC2 --> O2
+    I3 --> UC3 --> O3
+    I4 --> UC4 --> O4
+```
+
 ## Table of Contents
 
 - [The Problem](#the-problem)
