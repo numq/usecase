@@ -1,10 +1,7 @@
 # UseCase
 
-[![medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@numq/reduce-conquer-repeat-how-the-reduce-conquer-architecture-can-improve-your-compose-9fece98a3bb8)
-
-[A recipe for the Perfect Use Case](https://medium.com/@numq/a-recipe-for-the-perfect-use-case-3a3057930251)
-
-___
+[![medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@numq/a-recipe-for-the-perfect-use-case-3a3057930251)
+[![dev](https://img.shields.io/badge/dev-12100E?style=for-the-badge&logo=dev.to&logoColor=white)](https://dev.to/numq/a-recipe-for-the-perfect-use-case-5201)
 
 A curated collection of architectural patterns for business logic in Kotlin. This project demonstrates how to implement
 the UseCase pattern using different error-handling strategies while maintaining a clean, symmetric API.
