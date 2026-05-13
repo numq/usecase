@@ -1,5 +1,11 @@
 # UseCase
 
+[![medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@numq/reduce-conquer-repeat-how-the-reduce-conquer-architecture-can-improve-your-compose-9fece98a3bb8)
+
+[A recipe for the Perfect Use Case](https://medium.com/@numq/a-recipe-for-the-perfect-use-case-3a3057930251)
+
+___
+
 A curated collection of architectural patterns for business logic in Kotlin. This project demonstrates how to implement
 the UseCase pattern using different error-handling strategies while maintaining a clean, symmetric API.
 
@@ -52,6 +58,18 @@ In Kotlin, you cannot overload generics by the number of type parameters. This p
 `Unit` as `Input` or `Output` without polluting the implementation with boilerplate, using a `sealed interface`
 hierarchy.
 
+### CQRS at the Function Level
+
+While traditional CQRS separates reads and writes at the service or database level, this pattern applies the same
+principle at the UseCase level:
+
+- **Action** — fire and forget (no input, no output)
+- **Query** — read operation (no input, returns result)
+- **Command** — write operation (takes input, returns nothing)
+- **Exchange** — combined read-write (takes input, returns result)
+
+This gives you the benefits of CQRS (clarity, separation of concerns) without the infrastructure complexity.
+
 ## Implementations
 
 ### **[Arrow (Typed Errors)](./src/main/kotlin/io/github/numq/usecase/arrow/UseCase.kt)** - recommended
@@ -59,13 +77,9 @@ hierarchy.
 The most robust version, leveraging Arrow-kt and its Raise DSL for type-safe error handling. It transforms exceptions
 into values using Either.
 
-- **Action:** No input, no output (Unit -> Unit).
-
-- **Query:** No input, returns a result (Unit -> Output).
-
-- **Command:** Takes input, returns nothing (Input -> Unit).
-
-- **Exchange:** Full data transformation (Input -> Output).
+- **Typed Errors:** Errors are part of the signature via `Either<Throwable, T>`.
+- **Raise DSL:** Uses Arrow's computation blocks for clean error propagation.
+- **No Exceptions:** Business errors become values, not stack traces.
 
 ### **[Result (Standard Wrapper)](./src/main/kotlin/io/github/numq/usecase/result/UseCase.kt)**
 
